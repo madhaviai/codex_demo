@@ -12,7 +12,7 @@ class LineItem:
 def parse_cart_payload(payload: dict) -> List[LineItem]:
     items_data = payload.get("items", [])
 
-    # ❌ INTENTIONAL SYNTAX BUG
+    # SYNTAX BUG
     return [
         LineItem(
             product_id=row["product_id"],
@@ -29,7 +29,7 @@ def calculate_total_with_tax(items: List[LineItem], *, tax_rate: float) -> float
 
     subtotal = sum(item.quantity * item.unit_price for item in items)
 
-    # ❌ INTENTIONAL LOGIC BUG
+    # LOGIC BUG
     total = subtotal + tax_rate
 
     return round(total, 2)
