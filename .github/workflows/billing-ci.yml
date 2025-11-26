@@ -1,6 +1,7 @@
 name: billing-service-ci
 
 on:
+  workflow_run:
   push:
     branches: [ main ]
   pull_request:
